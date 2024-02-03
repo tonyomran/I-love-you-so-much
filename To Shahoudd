@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Month Anniversary<333</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #ff69b4;
+            text-align: center;
+        }
+        #countdown {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #messageBoard {
+            width: 100%;
+            height: 200px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            resize: none;
+        }
+        #submitMessage {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>First Month Anniversary</h1>
+        <div id="countdown"></div>
+        <h2>Message Board</h2>
+        <textarea id="messageBoard"></textarea>
+        <button id="submitMessage">Submit Message</button>
+    </div>
+    <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date("December 31, 2023 00:00:00").getTime("3:00:00");
+
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+
+        // Get today's date and time
+        var now = new Date("February 3").getTime("16:30:30");
+
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Display the result in the element with id="demo"
+        document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+        + minutes + "m " + seconds + "s ";
+
+        // If the count down is finished, write some text
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("countdown").innerHTML = "EXPIRED";
+        }
+        }, 1000);
+
+        // Submit message functionality
+        document.getElementById("submitMessage").addEventListener("click", function() {
+            var message = document.getElementById("messageBoard").value;
+            if (message) {
+                alert("Message submitted successfully!");
+                document.getElementById("messageBoard").value = "";
+            } else {
+                alert("Please enter a message before submitting.");
+            }
+        });
+    </script>
+</body>
+</html>
